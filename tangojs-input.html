@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-input/iron-input.html">
+<link rel="import" href="../tangojs-label/tangojs-label.html">
+<script src="node_modules/tangojs-web-components/dist/tangojs-web-components.js"></script>
+
+<dom-module id="tangojs-input">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <tangojs-label model='{{model}}'></tangojs-label>
+    <iron-input bind-value="{{setPoint}}">
+      <input type="[[inputType]]" on-keydown="write">
+    </iron-input>
+  </template>
+
+  <script>
+    /**
+     * `tangojs-input`
+     * TangoJS Editable field
+     * 
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TangojsInput extends tangojs.web.util.mixins.withTangoAttribute(Polymer.Element) {
+
+      static get is() { return 'tangojs-input'; }
+
+    }
+
+    window.customElements.define(TangojsInput.is, TangojsInput);
+  </script>
+</dom-module>
